@@ -6,6 +6,14 @@ from predictions import predict
 import torch
 import io
 from PIL import ImageEnhance
+from maps import saliency_map
+from torchvision import transforms
+
+transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
 
 def load_image(file_upload):
     if file_upload is not None:
@@ -35,5 +43,8 @@ if uploaded_file:
         st.image(enhanced_image)
 
     test_model = load_model(model_path, device)
-    result = predict(test_model, enhanced_image, device)
+    result, pred = predict(test_model, enhanced_image, device, transform)
     st.write(f"Hasil Prediksi : {result}")
+    
+    hello = saliency_map(test_model, enhanced_image, device, transform, pred)
+    st.write(hello)
