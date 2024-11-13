@@ -9,6 +9,7 @@ from PIL import ImageEnhance
 from maps import saliency_map
 from torchvision import transforms
 
+
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
@@ -28,6 +29,17 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 model_path = 'efficientnet_model.pth'
 
 st.title("Klasifikasi Penyakit Mata")
+st.write("Panduan Penggunaan")
+c1, c2 = st.columns((3, 1))
+with c1: 
+    st.markdown("""
+    - Klik "Browse File" untuk mengunggah gambar dengan format gambar JPG, PNG, atau JPEG seperti contoh di samping.
+    - Pilih gambar fundus dari perangkat anda.
+    - Setelah itu, sistem akan meload gambar dan secara otomatis mendeteksi penyakit yang ada pada fundus dengan fitur peningkatan kualitas gambar dengan faktor 3. 
+    - Anda dapat meningkatkan nilai faktor, jika kualitas gambar dirasa kurang. 
+    """)
+with c2: 
+    st.image('contoh_fundus.png')
 uploaded_file = st.file_uploader("Pilih Image", type=['jpg', 'png', 'jpeg'])
 if uploaded_file: 
     st.write("Tingkatkan kualitas gambar dengan Image Enhancement")
@@ -46,5 +58,4 @@ if uploaded_file:
     result, pred = predict(test_model, enhanced_image, device, transform)
     st.write(f"Hasil Prediksi : {result}")
     
-    hello = saliency_map(test_model, enhanced_image, device, transform, pred)
-    st.write(hello)
+    saliency_map(test_model, enhanced_image, device, transform, pred)
