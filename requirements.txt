@@ -1,4 +1,10 @@
 streamlit
-matplotlib
+numpy
 torch
+matplotlib
 transformers
+PIL
+io
+torchvision
+pandas
+plotly.express

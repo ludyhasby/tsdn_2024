@@ -1,11 +1,10 @@
 import streamlit as st
-from PIL import Image 
+from PIL import Image, ImageEnhance
 import matplotlib.pyplot as plt
 from models import load_model
 from predictions import predict
 import torch
 import io
-from PIL import ImageEnhance
 from maps import saliency_map
 from torchvision import transforms
 
