@@ -24,9 +24,8 @@ def decode_label(enc_point):
   return switch_dec.get(enc_point, None) # jika selain range(0, 4) maka default return adalah Null
 
 def predict(model, img, device):
-    images = [transform(ImageEnhance.Sharpness(img).enhance(3).convert("RGB"))]
+    images = [transform(img.convert("RGB"))]
     images = torch.stack(images).to(device) # to GPU
-    
     model.eval()
     images = images.to(device)
     model.to(device)
