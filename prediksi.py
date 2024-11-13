@@ -62,5 +62,6 @@ if uploaded_file:
     test_model = load_model(model_path, device)
     result, pred = predict(test_model, enhanced_image, device, transform)
     st.write(f"Hasil Prediksi : {result}")
-    
+    ## saliency map
     saliency_map(test_model, enhanced_image, device, transform, pred)
+    st.write("Masih dalam pengembangan - Jumat")
