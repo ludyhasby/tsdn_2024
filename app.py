@@ -9,6 +9,12 @@ from PIL import ImageEnhance
 from maps import saliency_map
 from torchvision import transforms
 
+st.set_page_config(
+    page_title="PANDAWA - Pendeteksi Awal Penyakit Mata",
+    page_icon="👁️",
+    layout="centered",
+    initial_sidebar_state="expanded"
+)
 
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
