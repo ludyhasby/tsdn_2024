@@ -38,9 +38,9 @@ st.write("Panduan Penggunaan")
 c1, c2 = st.columns((3, 1))
 with c1: 
     st.markdown("""
-    - Klik "Browse File" untuk mengunggah gambar dengan format gambar JPG, PNG, atau JPEG seperti contoh di samping.
+    - Klik "Browse Files" untuk mengunggah gambar dengan format gambar JPG, PNG, atau JPEG seperti contoh di samping.
     - Pilih gambar fundus dari perangkat anda.
-    - Setelah itu, sistem akan meload gambar dan secara otomatis mendeteksi penyakit yang ada pada fundus dengan fitur peningkatan kualitas gambar dengan faktor 3. 
+    - Setelah itu, sistem akan memuat gambar dan secara otomatis mendeteksi penyakit yang ada pada fundus dengan fitur peningkatan kualitas gambar dengan faktor 3. 
     - Anda dapat meningkatkan nilai faktor, jika kualitas gambar dirasa kurang. 
     """)
 with c2: 
