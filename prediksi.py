@@ -38,12 +38,13 @@ st.write("Panduan Penggunaan")
 c1, c2 = st.columns((3, 1))
 with c1: 
     st.markdown("""
-    - Klik "Browse Files" untuk mengunggah gambar dengan format gambar JPG, PNG, atau JPEG seperti contoh di samping.
+    - Klik "Browse Files" untuk mengunggah fundus photography dengan format gambar JPG, PNG, atau JPEG seperti contoh di samping.
     - Pilih gambar fundus dari perangkat anda.
     - Setelah itu, sistem akan memuat gambar dan secara otomatis mendeteksi penyakit yang ada pada fundus dengan fitur peningkatan kualitas gambar dengan faktor 3. 
-    - Anda dapat meningkatkan nilai faktor, jika kualitas gambar dirasa kurang. 
+    - Anda dapat meningkatkan nilai faktor, jika kualitas gambar dirasa kurang. Sebaliknya, anda dapat mengurangi nilai faktor, jika kualitas gambar dirasa cukup.
     """)
 with c2: 
+    st.caption("Contoh Fundus Photography")
     st.image('contoh_fundus.png')
 uploaded_file = st.file_uploader("Pilih Image", type=['jpg', 'png', 'jpeg'])
 if uploaded_file: 
